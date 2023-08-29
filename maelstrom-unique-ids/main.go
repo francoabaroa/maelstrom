@@ -17,9 +17,8 @@ var mutex sync.Mutex
 
 func main() {
 	n := maelstrom.NewNode()
-	log.Println("Registering handler for generate")
+
 	n.Handle("generate", func(msg maelstrom.Message) error {
-		log.Println("Inside generate handler")
 		// Unmarshal the message body into a map
 		var body map[string]any
 		if err := json.Unmarshal(msg.Body, &body); err != nil {
